@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QLabel>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -9,15 +10,18 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
-public:
+  public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
+  private slots:
+    void onScoreChanged(int score, int combo);
+
+  private:
     Ui::MainWindow *ui;
+    QLabel *scoreLabel_ = nullptr;
 };
 #endif // MAINWINDOW_H
